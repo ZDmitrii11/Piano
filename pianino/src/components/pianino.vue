@@ -198,6 +198,7 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
         name: "pianino",
         data() {
             return {
+                test: 'test',
                 notes: [
                     {
                         name: 'Do',
