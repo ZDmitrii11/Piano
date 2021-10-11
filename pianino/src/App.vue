@@ -2,7 +2,7 @@
     <div id="app">
 
 
-        <pianino></pianino>
+        <Pianino></Pianino>
 
 
     </div>
@@ -10,13 +10,13 @@
 
 <script>
 
-    import pianino from "./components/pianino";
+    import Pianino from "./components/pianino";
 
     export default {
         name: 'App',
 
         components: {
-            pianino
+            Pianino
         }
     }
 </script>

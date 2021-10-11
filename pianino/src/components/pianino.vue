@@ -1,185 +1,26 @@
 <template>
     <div class="container" >
-        <svg
 
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
-                xmlns:cc="http://creativecommons.org/ns#"
-                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:svg="http://www.w3.org/2000/svg"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-                width="1000px"
-                height="700px"
-                viewBox="0 0 472.36481 307.91974"
-                version="1.1"
-                id="svg4546"
-                inkscape:version="0.92.3 (2405546, 2018-03-11)"
-                sodipodi:docname="Piano Keys.svg"
-                inkscape:export-filename="C:\Users\matth\Downloads\Piano Keys.png"
-                inkscape:export-xdpi="96"
-                inkscape:export-ydpi="96">
-            <defs
-                    id="defs4540"/>
-            <sodipodi:namedview
-                    id="base"
-                    pagecolor="#ffffff"
-                    bordercolor="#666666"
-                    borderopacity="1.0"
-                    inkscape:pageopacity="0.0"
-                    inkscape:pageshadow="2"
-                    inkscape:zoom="0.49497475"
-                    inkscape:cx="381.09799"
-                    inkscape:cy="544.10454"
-                    inkscape:document-units="mm"
-                    inkscape:current-layer="g5221"
-                    showgrid="false"
-                    fit-margin-top="0"
-                    fit-margin-left="0"
-                    fit-margin-right="0"
-                    fit-margin-bottom="0"
-                    inkscape:window-width="1920"
-                    inkscape:window-height="1001"
-                    inkscape:window-x="-9"
-                    inkscape:window-y="-9"
-                    inkscape:window-maximized="1"/>
-            <metadata
-                    id="metadata4543">
-                <rdf:RDF>
-                    <cc:Work
-                            rdf:about="">
-                        <dc:format>image/svg+xml</dc:format>
-                        <dc:type
-                                rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-                        <dc:title/>
-                    </cc:Work>
-                </rdf:RDF>
-            </metadata>
-            <g
-                    inkscape:label="Layer 1"
-                    inkscape:groupmode="layer"
-                    id="layer1"
-                    transform="translate(-27.060319,8.1503491)">
-                <g
-                        id="g5221">
-                    <g
-                            id="g905">
-                        <rect
-                                @click="playSound(notes[0].soundPath)"
-                                id="rect3724"
-                                width="67.084877"
-                                height="305.14905"
-                                x="28.445669"
-                                y="-6.7649989"
-                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.77070045;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98009949"
-                                ry="7.7258973"/>
-                        <rect
-                                @click="playSound(notes[1].soundPath)"
-                                id="rect3724-2"
-                                width="67.084877"
-                                height="305.14905"
-                                x="95.530548"
-                                y="-6.7649989"
-                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.77070045;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98009949"
-                                ry="7.7258978"/>
-                        <rect
-                                @click="playSound(notes[2].soundPath)"
-                                id="rect3724-9"
-                                width="67.084877"
-                                height="305.14905"
-                                x="162.61542"
-                                y="-6.7649989"
-                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.77070045;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98009949"
-                                ry="7.7258978"/>
-                        <rect
-                                @click="playSound(notes[3].soundPath)"
-                                id="rect3724-4"
-                                width="67.084877"
-                                height="305.14905"
-                                x="229.70029"
-                                y="-6.7649989"
-                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.77070045;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98009949"
-                                ry="7.7258978"/>
-                        <rect
-                                @click="playSound(notes[4].soundPath)"
-                                id="rect3724-8"
-                                width="67.084877"
-                                height="305.14905"
-                                x="296.78516"
-                                y="-6.7649989"
-                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.77070045;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98009949"
-                                ry="7.7258978"/>
-                        <rect
-                                @click="playSound(notes[5].soundPath)"
-                                id="rect3724-6"
-                                width="67.084877"
-                                height="305.14905"
-                                x="363.87003"
-                                y="-6.7649989"
-                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.77070045;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98009949"
-                                ry="7.7258978"/>
-                        <rect
-                                @click="playSound(notes[6].soundPath)"
-                                id="rect3724-28"
-                                width="67.084877"
-                                height="305.14905"
-                                x="430.9549"
-                                y="-6.7649989"
-                                style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.77070045;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98009949"
-                                ry="7.7258978"/>
-                        <rect
-                                @click="playSound(notes[7].soundPath)"
-                                style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.82222223;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-                                id="rect5144"
-                                width="31.217339"
-                                height="182.76332"
-                                x="80.002808"
-                                y="-6.7392378"
-                                ry="7.7258859"/>
-                        <rect
-                                style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.82222223;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-                                id="rect5144-5"
-                                width="31.217339"
-                                height="182.76332"
-                                x="147.05116"
-                                y="-6.7392378"
-                                ry="7.7258859"/>
-                        <rect
-                                style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.82222223;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-                                id="rect5144-4"
-                                width="31.217339"
-                                height="182.76332"
-                                x="281.20731"
-                                y="-6.7392378"
-                                ry="7.7258859"/>
-                        <rect
-                                style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.82222223;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-                                id="rect5144-8"
-                                width="31.217339"
-                                height="182.76332"
-                                x="348.2312"
-                                y="-6.7392378"
-                                ry="7.7258859"/>
-                        <rect
-                                style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.82222223;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-                                id="rect5144-6"
-                                width="31.217339"
-                                height="182.76332"
-                                x="415.35974"
-                                y="-6.7392378"
-                                ry="7.7258859"/>
-                    </g>
-                </g>
-            </g>
-        </svg>
-
-        <div class="piano" v-for="note in notes" :key="note">
-          <div class="button-piano" @click.prevent="playSound(note.soundPath)">
+        <div class="piano" v-for="(note,index) in notes" :key="note">
+          <div class="button-piano" @keypress="keySound(note.keyCode)"  :id="index+1" @click.prevent="playSound(note.soundPath)">
                 <span class="span-notes">
                 {{note.name}}
             </span>
+              <p>{{note.keyCode.toUpperCase()}}</p>
+
+           <button class="str-button" @click.stop="trigger(note)">Click</button>
           </div>
         </div>
+        <div class="text-inp" v-if="isActive">
+             <h3>Change press key for your note {{currentTarget.name}} </h3>
+            <input type="text" style='text-transform:uppercase'  v-model="currentTarget.keyCode" maxlength="1">
+            <button @click="isActive = false">cancel</button>
+            <button @click="changeKey()">ok</button>
+
+
+        </div>
+
+
     </div>
 </template>
 
@@ -198,52 +39,94 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
         name: "pianino",
         data() {
             return {
-                test: 'test',
+                test:null,
+                isActive:false,
+                currentTarget:null,
+                textKey:'',
                 notes: [
                     {
+                        id:1,
                         name: 'Do',
-                        soundPath: note1
+                        soundPath: note1,
+                        keyCode:''
                     },
                     {
+                        id:2,
                         name: 'Re',
-                        soundPath: note2
+                        soundPath: note2,
+                        keyCode:'',
                     },
                     {
+                        id:3,
                         name: 'Mi',
-                        soundPath: note3
+                        soundPath: note3,
+                        keyCode:'',
                     },
                     {
+                        id:4,
                         name: 'Fa',
-                        soundPath: note4
+                        soundPath: note4,
+                        keyCode:''
                     },
                     {
+                        id:5,
                         name: 'Soli',
-                        soundPath: note5
+                        soundPath: note5,
+                        keyCode:''
                     },
                     {
+                        id:6,
                         name: 'La',
-                        soundPath: note6
+                        soundPath: note6,
+                        keyCode:'',
                     },
                     {
+                        id:7,
                         name: 'Si',
-                        soundPath: note7
+                        soundPath: note7,
+                        keyCode:'',
                     },
                     {
+                        id:8,
                         name: 'AllPlay',
-                        soundPath: noteAll
+                        soundPath: noteAll,
+                        keyCode:''
                     },
 
                 ]
             }
         },
+        created() {
+            window.addEventListener('keypress',this.keySound)
+        },
         methods:{
             playSound (sound) {
-                let audio = new Audio(sound); // path to file
+                let audio = new Audio(sound);
                 audio.play();
-            }
-        }
+            },
 
+            keySound(e){
+               let sorted = this.notes.find(el=>el.keyCode === e.key)
+                   return this.playSound(sorted.soundPath)
+                },
+
+            trigger(ind){
+              this.isActive = !this.isActive
+                this.currentTarget = ind
+            },
+            changeKey(){
+            this.currentTarget = this.notes.id = this.currentTarget.id
+            this.isActive = !this.isActive
+            },
+
+        },
+        destroyed() {
+            document.removeEventListener('keydown', this.keySound);
+        },
     }
+
+
+
 </script>
 
 <style scoped>
