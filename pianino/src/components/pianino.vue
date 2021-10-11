@@ -1,8 +1,8 @@
 <template>
     <div class="container" >
 
-        <div class="piano" v-for="(note,index) in notes" :key="note">
-          <div class="button-piano" @keypress="keySound(note.keyCode)"  :id="index+1" @click.prevent="playSound(note.soundPath)">
+        <div class="piano" v-for="note in notes" :key="note">
+          <div class="button-piano" @keypress="keySound(note.keyCode)"  :id="note.id" @click.prevent="playSound(note.soundPath)">
                 <span class="span-notes">
                 {{note.name}}
             </span>
@@ -26,14 +26,9 @@
 </template>
 
 <script>
-const note1 = require('../notes/noty-do.mp3');
-const note2 = require('../notes/re.mp3');
-const note3 = require('../notes/mi.mp3');
-const note4 = require('../notes/fa.mp3');
-const note5 = require('../notes/sol.mp3');
-const note6 = require('../notes/lja.mp3');
-const note7 = require('../notes/si.mp3');
-const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
+
+    import name from '../notes'
+
 
 
     export default {
@@ -48,49 +43,49 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
                     {
                         id:1,
                         name: 'Do',
-                        soundPath: note1,
+                        soundPath: name.Do,
                         keyCode:''
                     },
                     {
                         id:2,
                         name: 'Re',
-                        soundPath: note2,
+                        soundPath: name.Re,
                         keyCode:'',
                     },
                     {
                         id:3,
                         name: 'Mi',
-                        soundPath: note3,
+                        soundPath: name.Mi,
                         keyCode:'',
                     },
                     {
                         id:4,
                         name: 'Fa',
-                        soundPath: note4,
+                        soundPath: name.Fa,
                         keyCode:''
                     },
                     {
                         id:5,
                         name: 'Soli',
-                        soundPath: note5,
+                        soundPath: name.Sol,
                         keyCode:''
                     },
                     {
                         id:6,
                         name: 'La',
-                        soundPath: note6,
+                        soundPath: name.La,
                         keyCode:'',
                     },
                     {
                         id:7,
                         name: 'Si',
-                        soundPath: note7,
+                        soundPath: name.Si,
                         keyCode:'',
                     },
                     {
                         id:8,
                         name: 'AllPlay',
-                        soundPath: noteAll,
+                        soundPath: name.allNotes,
                         keyCode:''
                     },
 
@@ -100,17 +95,26 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
             }
         },
         created() {
+            console.log('name',name)
             window.addEventListener('keypress',this.keySound)
         },
         methods:{
             playSound (sound) {
                 let audio = new Audio(sound);
                 audio.play();
+
+
             },
 
             keySound(e){
                let sorted = this.notes.find(el=>el.keyCode === e.key)
-                   return this.playSound(sorted.soundPath)
+                   this.playSound(sorted.soundPath)
+                   let keyNote = document.getElementById(sorted.id)
+                    console.log(keyNote)
+                keyNote.classList.add('wave2')
+                setTimeout(()=>{
+                    keyNote.classList.remove('wave2')
+                },1000)
                 },
 
             trigger(ind){
@@ -118,12 +122,9 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
                 this.currentTarget = ind
             },
             changeKey(){
-
             this.currentTarget = this.notes.id = this.currentTarget.id
-
             this.isActive = !this.isActive
             },
-
         },
         destroyed() {
             document.removeEventListener('keydown', this.keySound);
@@ -136,28 +137,54 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
 
 <style scoped>
 .container{
+    margin-left: 25%;
+    margin-top: 100px;
     height: 250px;
     width: 1200px;
     display: flex;
-    flex-direction: row;
-
+    flex-direction: row;;
 }
     .piano{
         display: flex;
-        width: 150px;
+        width: auto;
         height: 250px;
         flex-direction: row;
-
     }
 .button-piano{
-    width: 120px;
+    width: 80px;
     background-color: burlywood;
+    border-radius: 33%;
     border: 1px solid black;
     text-align: center;
-    justify-content: flex-end;
-}
-.button-piano>span {
-
 
 }
+.wave2 {
+    -webkit-animation: wave-animation1 6.3s infinite linear; /* Safari 4+ */
+    -moz-animation:    wave-animation1 6.3s infinite linear; /* Fx 5+ */
+    -o-animation:      wave-animation1 6.3s infinite linear; /* Opera 12+ */
+    animation:         wave-animation1 6.3s infinite linear; /* IE 10+ */
+}
+
+@-webkit-keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% { background-position: 1601px 0; }
+}
+@-moz-keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% { background-position: 1601px 0; }
+}
+@-o-keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% { background-position: 1601px 0; }
+}
+@keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% {background-position: 1601px 0;}
+}
+
+.wave2 {
+    background: url('http://www.templates-preview.com/bootstrap-templates/300111854/images/wave2.png') 0 0 repeat-x;
+}
+
+
 </style>
