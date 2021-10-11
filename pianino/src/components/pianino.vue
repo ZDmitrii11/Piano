@@ -95,7 +95,8 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
                     },
 
                 ],
-                error:''
+                error:'',
+                hhh:''
             }
         },
         created() {
