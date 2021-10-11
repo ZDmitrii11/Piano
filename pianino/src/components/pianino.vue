@@ -14,6 +14,7 @@
         <div class="text-inp" v-if="isActive">
              <h3>Change press key for your note {{currentTarget.name}} </h3>
             <input type="text" style='text-transform:uppercase'  v-model="currentTarget.keyCode" maxlength="1">
+            <span class="error" v-if="error.length">{{error}}</span>
             <button @click="isActive = false">cancel</button>
             <button @click="changeKey()">ok</button>
 
@@ -93,7 +94,8 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
                         keyCode:''
                     },
 
-                ]
+                ],
+                error:''
             }
         },
         created() {
@@ -115,7 +117,11 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
                 this.currentTarget = ind
             },
             changeKey(){
+              let findCharacter = this.notes.find(el=>el[this.notes[this.currentTarget.id]])
+               console.log(findCharacter)
+
             this.currentTarget = this.notes.id = this.currentTarget.id
+
             this.isActive = !this.isActive
             },
 
