@@ -118,8 +118,6 @@ const noteAll = require('../notes/do-re-mi-fa-sol-lja-si.mp3')
                 this.currentTarget = ind
             },
             changeKey(){
-              let findCharacter = this.notes.find(el=>el[this.notes[this.currentTarget.id]])
-               console.log(findCharacter)
 
             this.currentTarget = this.notes.id = this.currentTarget.id
 
