@@ -1,35 +1,46 @@
 <template>
     <div class="container">
 
-        <div class="piano" v-for="note in notes" :key="note">
+        <div class="piano" v-for="note in notes" :key="note.id">
             <div class="button-piano waves-effect " @keypress="keySound(note.keyCode)" :id="note.id"
                  @click.prevent="playSound(note.soundPath)">
                 <span class="span-notes">
                 {{note.name}}
             </span>
                 <p>{{note.keyCode.toUpperCase()}}</p>
-
                 <button class="btn-small waves-effect waves-light" @click.stop="trigger(note)">
                     Click
                 </button>
             </div>
         </div>
         <div class="text-inp" v-if="isActive">
-            <h5 :ref="currentTarget.name">Change press key for your note <span style="color: #ff0000">{{currentTarget.name}}</span></h5>
+            <h5>Change press key for your note <span style="color: #ff0000">{{currentTarget.name}}</span></h5>
             <input type="text" style='text-transform:uppercase' v-model="textKey" maxlength="1">
-             <div class="error" v-if="error.length">{{error}}</div>
+            <div class="error" v-if="error.length">{{error}}</div>
             <div class="buttons-input">
                 <button class="btn" @click="cancelButton">cancel</button>
-                <button class="btn" @click="changeKey">OK</button>
+                <!-- Modal Trigger -->
+                <button data-target="modal1" class="btn modal-trigger">Edit</button>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal" ref="openModal">
+                    <div class="modal-content">
+                        <h5>You Sure You want To Change Voice <span style="color:red">{{this.currentTarget.name}}</span>
+                            to KeyPress <span style="color: red">
+                         {{this.textKey.toUpperCase()}}
+                     </span></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Disagree</a>
+                        <a href="#!" @click="changeKey" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
             </div>
         </div>
-
-
     </div>
 </template>
 
 <script>
-    // import M from 'materialize-css/'
+    import M from 'materialize-css/'
     import name from '../notes'
 
     export default {
@@ -37,6 +48,7 @@
         data() {
             return {
                 isActive: false,
+                modal: null,
                 currentTarget: null,
                 textKey: '',
                 error: '',
@@ -97,7 +109,18 @@
         created() {
             window.addEventListener('keypress', this.keySound)
         },
+        watch: {
+            isActive(newV) {
+                if (newV === true) {
+                    setTimeout(() => {
+                        M.Modal.init(this.$refs.openModal)
+                    }, 100)
+
+                }
+            }
+        },
         methods: {
+
             playSound(sound) {
                 let audio = new Audio(sound);
                 audio.play();
@@ -116,29 +139,29 @@
                 this.currentTarget = ind
             },
             changeKey() {
-             let findKey = this.notes.find(el=>el.keyCode === this.textKey)
-                if (findKey){
-                    this.error = `Same character exist put other ${this.textKey.toUpperCase()}`
-                }
-                else {
+                let findKey = this.notes.find(el => el.keyCode === this.textKey)
+                if (findKey) {
+                    this.error = `Same KeyPress ${this.textKey.toUpperCase()} exist put other`
+                } else {
                     this.currentTarget.keyCode = this.textKey
                     localStorage.setItem(`${this.currentTarget.name}`, this.textKey)
                     this.isActive = !this.isActive
                 }
 
-                },
+            },
             cancelButton() {
                 this.isActive = false
                 this.textKey = ''
             }
         },
         mounted() {
-         this.notes.forEach(el=>{
-             const name = localStorage.getItem(el.name);
-             if (name){
-                 this.notes[el.id-1].keyCode = name
-             }
-         })
+            this.notes.forEach(el => {
+                const name = localStorage.getItem(el.name);
+                if (name) {
+                    this.notes[el.id - 1].keyCode = name
+                }
+            })
+
         }
     }
 
@@ -154,12 +177,13 @@
     }
 
     .buttons-input {
+
         display: flex;
         justify-content: space-around;
     }
 
     .container {
-        margin-left: 25%;
+        margin-left: 0px;
         margin-top: 100px;
         height: 250px;
         width: 1200px;
