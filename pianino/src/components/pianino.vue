@@ -9,8 +9,11 @@
             </span>
                 <p>{{note.keyCode.toUpperCase()}}</p>
                 <button class="btn-small waves-effect waves-light" @click.stop="trigger(note)">
-                    Click
+                    Add
                 </button>
+                <a v-if="note.keyCode" @click="removeKey(note.id)"  class="btn-floating bottom btn-small waves-effect waves-light red">
+                <i class="material-icons">-</i></a>
+
             </div>
         </div>
         <div class="text-inp" v-if="isActive">
@@ -112,6 +115,7 @@
         watch: {
             isActive(newV) {
                 if (newV === true) {
+
                     setTimeout(() => {
                         M.Modal.init(this.$refs.openModal)
                     }, 100)
@@ -148,6 +152,11 @@
                     this.isActive = !this.isActive
                 }
 
+            },
+            removeKey(item){
+                localStorage.removeItem( this.notes[item-1].name)
+                this.notes[item-1].keyCode = ''
+                console.log(this.notes.keyCode)
             },
             cancelButton() {
                 this.isActive = false
