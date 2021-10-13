@@ -11,19 +11,24 @@
                 <button class="btn-small waves-effect waves-light" @click.stop="trigger(note)">
                     Add
                 </button>
-                <a v-if="note.keyCode" @click="removeKey(note.id)"  class="btn-floating bottom btn-small waves-effect waves-light red">
+                <a v-if="note.keyCode" @click.stop="removeKey(note.id)"  class="btn-floating bottom btn-small waves-effect waves-light red">
                 <i class="material-icons">-</i></a>
 
             </div>
         </div>
-        <div class="text-inp" v-if="isActive">
+
+        <div class="text-inp"  v-if="isActive">
+
             <h5>Change press key for your note <span style="color: #ff0000">{{currentTarget.name}}</span></h5>
+
             <input type="text" style='text-transform:uppercase' v-model="textKey" maxlength="1">
+
+
             <div class="error" v-if="error.length">{{error}}</div>
             <div class="buttons-input">
                 <button class="btn" @click="cancelButton">cancel</button>
                 <!-- Modal Trigger -->
-                <button data-target="modal1" class="btn modal-trigger">Edit</button>
+                <button data-target="modal1"  class="btn modal-trigger">Edit</button>
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal" ref="openModal">
                     <div class="modal-content">
@@ -106,6 +111,7 @@
                     },
 
                 ],
+                removeListener:false
 
             }
         },
@@ -115,13 +121,17 @@
         watch: {
             isActive(newV) {
                 if (newV === true) {
-
                     setTimeout(() => {
                         M.Modal.init(this.$refs.openModal)
                     }, 100)
-
+                    window.removeEventListener('keypress', this.keySound)
+                }
+                else if (newV === false){
+                    window.addEventListener('keypress', this.keySound)
+                    this.textKey = ''
                 }
             }
+
         },
         methods: {
 
@@ -145,7 +155,7 @@
             changeKey() {
                 let findKey = this.notes.find(el => el.keyCode === this.textKey)
                 if (findKey) {
-                    this.error = `Same KeyPress ${this.textKey.toUpperCase()} exist put other`
+                    this.error = `Same KeyPress ${this.textKey.toUpperCase()} exist put other Key`
                 } else {
                     this.currentTarget.keyCode = this.textKey
                     localStorage.setItem(`${this.currentTarget.name}`, this.textKey)
